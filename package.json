@@ -21,12 +21,12 @@
   },
   "homepage": "https://github.com/zcfrank1st/slid",
   "bin": {
-    "slid": "bin/slid"
+    "slid": "bin/slid.js"
   },
   "dependencies": {
     "colors": "~0.6.2",
     "js-yaml": "~3.0.2",
-    "mu2": "~0.5.20",
-    "optimist": "~0.6.1"
+    "minimist": "~0.1.0",
+    "mu2": "~0.5.20"
   }
 }
