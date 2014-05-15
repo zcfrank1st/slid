@@ -1,0 +1,32 @@
+{
+  "name": "slid",
+  "version": "0.0.1",
+  "description": "generate fantastic slides",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zcfrank1st/slid.git"
+  },
+  "keywords": [
+    "impress",
+    "slides"
+  ],
+  "author": "zcfrank1st",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zcfrank1st/slid/issues"
+  },
+  "homepage": "https://github.com/zcfrank1st/slid",
+  "bin": {
+    "slid": "bin/slid"
+  },
+  "dependencies": {
+    "colors": "~0.6.2",
+    "js-yaml": "~3.0.2",
+    "mu2": "~0.5.20",
+    "optimist": "~0.6.1"
+  }
+}
