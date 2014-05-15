@@ -15,12 +15,17 @@ slid.generateConfigFile = function generateConfigFile(slideNum) {
 slid.renderTemplate = function renderTemplateAndGenerateFile(slideNum) {
   var fileName = 'slide_' + slideNum + '.html';
   var content = yaml.safeLoad(fs.readFileSync('./slides.yml', 'utf8'));
-  this.del();
+  if (fs.existsSync(__dirname + '/target/slide.html')) {
+    this.del();
+  }
   mu.root = __dirname + '/template';
   mu.compileAndRender(fileName, content)
     .on('data', function (data) {
       var stream = data.toString();
       console.log(stream);
+      if (!fs.existsSync(__dirname + '/target/')) {
+        fs.mkdirSync(__dirname + '/target/');
+      }
       fs.writeFileSync(__dirname + '/target/slide.html', stream, {
         flag: 'a'
       });
