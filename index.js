@@ -26,6 +26,9 @@ slid.renderTemplate = function renderTemplateAndGenerateFile(slideNum) {
   mu.compileAndRender(fileName, content)
     .on('data', function (data) {
       var stream = data.toString();
+      
+      //console.log(stream);
+      
       if (!fs.existsSync(__dirname + '/target/')) {
         fs.mkdirSync(__dirname + '/target/');
       }
@@ -34,7 +37,7 @@ slid.renderTemplate = function renderTemplateAndGenerateFile(slideNum) {
       });
       console.log('file part ' + part + ' rendered successfully!' .green);
       part = part + 1;
-    });
+    }); 
 };
 
 slid.start = function start() {
