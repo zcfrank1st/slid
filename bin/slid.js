@@ -1,40 +1,45 @@
 #!/usr/bin/env node
 
-var colors = require('colors'); 
-var argv = require('minimist')(process.argv.slice(2));;
+var colors = require('colors');
+var argv = require('minimist')(process.argv.slice(2));
+var fs = require('fs');
 
 var slide = require('../index');
 
-console.log(argv);
+if (argv.help) {
+  console.log('Usage: '.yellow);
+  console.log('"slid --generate [num]"    first: using template [num] to generate config file, for example: slid --generate 3'.blue);
+  console.log('"slid --render [num]"            then : using config and template [num] file to render slides'.blue);
+  console.log('"slid --run"               final: to show the rendered slides'.blue);
 
-if (argv.h || 0 === argv._.length) {
-  console.log('Usage: ');
-  console.log('"slid --generate [num]"    first: using template [num] to generate config file, for example: slid --generate 3');
-  console.log('"slid --render"            then : using config file to render slides');
-  console.log('"slid --run"               final: to show the rendered slides');
+  process.exit(0);
 }
 
-var mode = argv.generate || -1;
-var currentMode = [3,4,5,6];
+var mode = argv.generate || 3;
+var currentMode = [3, 4, 5, 6];
 
-var tag = currentMode.forEach(function (ele) {
-  if (ele === mode) {
-    return true;
-  } else {
-    console.log('error template number, please check!');
-    return false;
+var tag = false;
+for (var i = 0; i < currentMode.length; i++) {
+  if (mode === currentMode[i]) {
+    tag = true;
   }
 }
 
-// TODO 命令行解析                              
-//if (tag && argv.generate) {
-//  slide.generateConfigFile(mode);
-//}
-//
-//if (tag && argv.render) {
-//  slide.renderTemplate(mode);
-//}
-//
-//if (tag) {
-//  slide.start();
-//}
+mode = argv.render || mode;
+var target = __dirname.split('/');
+target.pop();
+target = target.join('/');
+
+if (tag && argv.generate) {
+  slide.generateConfigFile(mode);
+} else if (argv.render && fs.existsSync(process.cwd() + '/slides.yml')) {
+  if (argv.render !== true) {
+    slide.renderTemplate(mode);
+  } else {
+    console.log('please input the render template num as the first step~'.red);
+  }
+} else if (argv.run && fs.existsSync(target + '/target/slide.html')) {
+  slide.start();
+} else {
+  console.log('please use "slid --help" to follow the steps, and check it~');
+}
