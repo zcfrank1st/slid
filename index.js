@@ -11,7 +11,7 @@ slid.generateConfigFile = function generateConfigFile(slideNum) {
     data = data + 'slide' + i + ':\n';
   }
   fs.writeFileSync(process.cwd() + '/slides.yml', data);
-  console.log('config file has generated successfully in the current path, please fill the content in' .green);
+  console.log('config file has generated successfully in the current path, please fill the content in'.green);
 };
 
 slid.renderTemplate = function renderTemplateAndGenerateFile(slideNum) {
@@ -20,24 +20,24 @@ slid.renderTemplate = function renderTemplateAndGenerateFile(slideNum) {
   if (fs.existsSync(__dirname + '/target/slide.html')) {
     this.del();
   }
-  
+
   var part = 0;
   mu.root = __dirname + '/template';
   mu.compileAndRender(fileName, content)
     .on('data', function (data) {
       var stream = data.toString();
-      
+
       //console.log(stream);
-      
+
       if (!fs.existsSync(__dirname + '/target/')) {
         fs.mkdirSync(__dirname + '/target/');
       }
       fs.writeFileSync(__dirname + '/target/slide.html', stream, {
         flag: 'a'
       });
-      console.log('file part ' + part + ' rendered successfully!' .green);
+      console.log('file part ' + part + ' rendered successfully!'.green);
       part = part + 1;
-    }); 
+    });
 };
 
 slid.start = function start() {
@@ -46,9 +46,12 @@ slid.start = function start() {
 
   if ('darwin' === process.platform) {
     cc.exec("open " + __dirname + "/target/" + fileName);
-    console.log('running successfully' .green);
+    console.log('running successfully'.green);
+  } else if ('win32' === process.platform) {
+    cc.exec("start " + __dirname + "\\target\\" + fileName);
+    console.log('running successfully'.green);
   } else {
-    console.log('sorry,not support your os now!' .red);
+    console.log('sorry,not support your os now!'.red);
   }
 };
 

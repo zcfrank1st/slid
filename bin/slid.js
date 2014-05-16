@@ -26,9 +26,21 @@ for (var i = 0; i < currentMode.length; i++) {
 }
 
 mode = argv.render || mode;
-var target = __dirname.split('/');
-target.pop();
-target = target.join('/');
+var target = "";
+
+if ('darwin' === process.platform) {
+  target = __dirname.split('/');
+  target.pop();
+  target = target.join('/');
+} else if ('win32' === process.platform) {
+  target = __dirname.split('\\');
+  target.pop();
+  target = target.join('\\');
+} else {
+  console.log('your OS not supported now' .red);
+  process.exit(0);
+}
+
 
 if (tag && argv.generate) {
   slide.generateConfigFile(mode);
