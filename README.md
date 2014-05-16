@@ -32,6 +32,8 @@ such as `slid --render 3`, using template 3 to render slides, at last run
 to watch the slides
 
 P.S. Now `slid` supports 2 templates, 3 and 6 which allow you to generate slides with 3 or 6 pages.
+
+P.P.S Now `slid` can also run on the MAC and Windows
 	
 
 ## Licence
