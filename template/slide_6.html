@@ -1,40 +1,45 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Slid</title>
-        <meta charset="utf-8" />
-        <link href="../lib/impress/impress-demo.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="impress-not-supported">
-            <div class="fallback-message">
-                <p>你的浏览器<b>不支持</b>, 所以当前展示的是简化版。</p>
-                <p>为了获得更好的体验，请使用最新的 <b>Chrome</b>, <b>Safari</b> 或者 <b>Firefox</b> 浏览器。</p>
-            </div>
-        </div>
-        <div id="impress">
-            <div class="step" data-x="0" data-y="0">
-                {{{slide1}}}
-            </div>
-            <div class="step" data-x="0" data-y="-800" data-rotate="90">
-                {{{slide2}}}
-                        </div>
-            <div class="step" data-x="-1200" data-y="0" data-rotate-x="30" data-rotate-y="-30" data-rotate-z="90" data-scale="4">
-                {{{slide3}}}
-            </div>
-            <div class="step" data-x="-1200" data-y="0" data-rotate-x="30" data-rotate-y="-30" data-rotate-z="90" data-scale="4">
-                {{{slide4}}}
-            </div>
-            <div class="step" data-x="-1200" data-y="0" data-rotate-x="30" data-rotate-y="-30" data-rotate-z="90" data-scale="4">
-                {{{slide5}}}
-            </div>
-            <div class="step" data-x="-1200" data-y="0" data-rotate-x="30" data-rotate-y="-30" data-rotate-z="90" data-scale="4">
-                {{{slide6}}}
-            </div>
-            <!-- darren code -->
-            <div id="overview" class="step" data-x="-200" data-y="-500" data-scale="3"></div>
-        </div>
-        <script src="../lib/impress/impress.js"></script>
-        <script>impress().init();</script>
-    </body>
+
+<head>
+  <title>Slid</title>
+  <meta charset="utf-8" />
+  <link href="../lib/impress/impress-demo.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="impress-not-supported">
+    <div class="fallback-message">
+      <p>你的浏览器<b>不支持</b>, 所以当前展示的是简化版。</p>
+      <p>为了获得更好的体验，请使用最新的 <b>Chrome</b>, <b>Safari</b> 或者 <b>Firefox</b> 浏览器。</p>
+    </div>
+  </div>
+  <div id="impress">
+    <div class="step" data-x="0" data-y="0">
+      {{{slide1}}}
+    </div>
+    <div class="step" data-x="0" data-y="-800" data-rotate="90">
+      {{{slide2}}}
+    </div>
+    <div class="step" data-x="200" data-y="-1200" data-rotate-x="30" data-rotate-y="-30" data-rotate-z="30" data-scale="4">
+      {{{slide3}}}
+    </div>
+    <div class="step" data-x="-300" data-y="500" data-rotate-x="180" data-rotate-y="-60" data-rotate-z="90" data-scale="4">
+      {{{slide4}}}
+    </div>
+    <div class="step" data-x="-600" data-y="-1800" data-rotate-x="270" data-rotate-y="-180" data-rotate-z="180" data-scale="4">
+      {{{slide5}}}
+    </div>
+    <div class="step" data-x="-1200" data-y="0" data-rotate-x="360" data-rotate-y="-270" data-rotate-z="270" data-scale="4">
+      {{{slide6}}}
+    </div>
+    <!-- darren code -->
+    <div id="overview" class="step" data-x="-300" data-y="-600" data-scale="3"></div>
+  </div>
+  <script src="../lib/impress/impress.js"></script>
+  <script>
+    impress().init();
+  </script>
+</body>
+
 </html>
