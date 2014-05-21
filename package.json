@@ -30,6 +30,7 @@
     "mu2": "~0.5.20"
   },
   "devDependencies": {
+    "grunt": "^0.4.5",
     "should": "^3.3.1"
   }
 }
