@@ -28,5 +28,8 @@
     "js-yaml": "~3.0.2",
     "minimist": "~0.1.0",
     "mu2": "~0.5.20"
+  },
+  "devDependencies": {
+    "should": "^3.3.1"
   }
 }
